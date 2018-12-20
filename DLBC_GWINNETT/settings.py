@@ -17,12 +17,6 @@ from decouple import config, Csv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-EMAIL_HOST = config('HOST')
-EMAIL_HOST_USER = config('EMAIL_USERNAME')
-EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
-EMAIL_PORT = config('E_PORT', cast=int)
-EMAIL_USE_TLS = True
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
