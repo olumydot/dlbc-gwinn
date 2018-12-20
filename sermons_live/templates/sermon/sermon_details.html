@@ -1,0 +1,132 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Contact US
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">{{ sermon_detail.sermon_name }}</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li><a href="{% url "sermons:sermon_list" %}">Sermons</a></li>
+          <li>{{ sermon_detail.sermon_name }}</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+
+        <h1 class="align-center">{{ sermon_detail.sermon_name }}</h1>
+
+        <div class="content-element">
+
+          <div class="single-post">
+
+            <div class="content-element3">
+              <img src="{{ sermon_detail.image.url }}" alt="">
+            </div>
+
+            <div class="content-element4">
+
+              <div class="row">
+                <div class="col-md-8">
+
+                  <h5 class="e-title">Description</h5>
+
+                  <p>{{ sermon_detail.details }}</p>
+
+                  <div class="btns-set content-element4">
+
+                    <a href="{{ sermon_detail.video_link }}" class="btn"><i class="licon-camera-play"></i>Watch</a>
+                    <a href="{{ sermon_detail.audio_link }}" class="btn"><i class="licon-headphones"></i>Listen</a>
+                    <a href="{{ sermon_detail.video_link }}" class="btn"><i class="licon-enter-down2"></i>Download</a>
+
+
+                  </div>
+
+                  <div class="share-wrap">
+
+                    <span class="share-title">Share this:</span>
+                    <ul class="social-icons share">
+
+                      <li><a href="#" class="sh-facebook"><i class="fab fa-facebook-square"></i></a></li>
+                      <li><a href="#" class="sh-twitter"><i class="fab fa-twitter-square"></i></a></li>
+                      <li><a href="#" class="sh-google"><i class="fab fa-instagram"></i></a></li>
+                      <li><a href="#" class="sh-mail"><i class="fas fa-envelope"></i></a></li>
+
+                    </ul>
+
+                  </div>
+
+                </div>
+                <div class="col-md-4">
+
+                  <h5 class="e-title">Details</h5>
+
+                  <ul class="custom-list">
+
+                    <li><span>Date:</span> {{ sermon_detail.date }}</li>
+                    <li><span>Topics:</span> <a href="{{ sermon_detail.get_absolute_url }}">{{ sermon_detail.sermon_name }}</a></li>
+                    <li><span>Pastor:</span> <a href="{% url "leadership:leadership_list" %}">{{ sermon_detail.preacher_name }}</a></li>
+                    <li><span>Books:</span> <a href="{{ sermon_detail.get_absolute_url }}" class="link-text">{{ sermon_detail.text }}</a></li>
+
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="page-nav">
+{#              <div class="flex-item"><a href="#" class="btn btn-small btn-style-6 prev-btn">Previous Event</a></div>#}
+              <a href="#" class="menu-button"><i class="licon-icons"></i></a>
+{#              <div class="flex-item"><a href="#" class="btn btn-small btn-style-6 next-btn">Next Event</a></div>#}
+            </div>
+
+          </div>
+
+        </div>
+
+{#        <h3 class="title">Related Sermons</h3>#}
+
+
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

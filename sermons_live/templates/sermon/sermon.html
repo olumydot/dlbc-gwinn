@@ -1,0 +1,125 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Sermons
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">Sermons</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Sermons</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+
+        <div class="sorting">
+
+
+        </div>
+
+        <div class="entry-box flex-row item-col-3">
+
+          <!-- Entry -->
+            {% for s in sermons_details %}
+          <div class="entry-col">
+
+            <div class="entry">
+
+              <!-- - - - - - - - - - - - - - Entry attachment - - - - - - - - - - - - - - - - -->
+              <div class="thumbnail-attachment">
+                <a href="{{ s.get_absolute_url }}"><img src="{{ s.image.url }}" alt=""></a>
+              </div>
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+              <div class="entry-body">
+
+                <h5 class="entry-title"><a href="#">{{ s.sermon_name }}</a></h5>
+                <div class="entry-meta">
+
+                  <span>on</span>
+                  <time class="entry-date" datetime="2018-03-18">{{ s.date }}</time>
+                  <span>by</span>
+                  <a href="{{ s.get_absolute_url }}" class="entry-cat">{{ s.preacher_name }}</a>
+
+                </div>
+                <p>{{ s.details }}</p>
+
+                <div class="entry-action">
+
+                  <a href="{{ s.get_absolute_url }}"><i class="licon-camera-play"></i></a>
+                  <a href="{{ s.get_absolute_url }}"><i class="licon-headphones"></i></a>
+                  <a href="{{ s.get_absolute_url }}"><i class="licon-enter-down2"></i></a>
+                  <a href="{{ s.get_absolute_url }}"><i class="licon-file-empty"></i></a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+            {% endfor %}
+
+          <!-- Entry -->
+
+          <!-- Entry -->
+
+
+          <!-- Entry -->
+
+
+          <!-- Entry -->
+
+          <!-- Entry -->
+
+          <!-- Entry -->
+
+          <!-- Entry -->
+
+          <!-- Entry -->
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

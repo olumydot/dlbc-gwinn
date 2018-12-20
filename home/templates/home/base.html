@@ -1,0 +1,343 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+  <!-- Google Web Fonts
+  ================================================== -->
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7CLora:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Basic Page Needs
+  ================================================== -->
+
+  <title>{% block title %}Gwinnett Church{% endblock %}</title>
+
+  <!--meta info-->
+  <meta charset="utf-8">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Vendor CSS
+  ============================================ -->
+
+  <link rel="stylesheet" href="{% static "fonts/demo-files/demo.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/fancybox/jquery.fancybox.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/revolution/css/settings.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/revolution/css/layers.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/revolution/css/navigation.css" %}">
+
+  <!-- CSS theme files
+  ============================================ -->
+  <link rel="stylesheet" href="{% static "css/bootstrap-grid.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/fontello.css" %}">
+  <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/responsive.css" %}">
+
+   <!-- font Awesome
+  ============================================ -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+   <!-- favicon
+  ============================================ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+  <link rel="manifest" href="{% static "favicon/site.webmanifest" %}">
+  <link rel="mask-icon" href="{% static "favicon/safari-pinned-tab.svg" %}" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+  <div class="loader"></div>
+
+  <!--cookie-->
+  <!-- <div class="cookie">
+          <div class="container">
+            <div class="clearfix">
+              <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+              <div class="f-right"><a href="#" class="button button-type-3 button-orange">Accept Cookies</a><a href="#" class="button button-type-3 button-grey-light">Read More</a></div>
+            </div>
+          </div>
+        </div>-->
+
+  <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+
+  <div id="wrapper" class="wrapper-container">
+
+    <!-- - - - - - - - - - - - - Mobile Menu - - - - - - - - - - - - - - -->
+
+    <nav id="mobile-advanced" class="mobile-advanced"></nav>
+
+    <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
+
+    <header id="header" class="header sticky-header fixed-header">
+
+      <!-- searchform -->
+
+      <div class="searchform-wrap">
+        <div class="vc-child h-inherit">
+
+          <form class="search-form">
+            <button type="submit" class="search-button"></button>
+            <div class="wrapper">
+              <input type="text" name="search" placeholder="Start typing...">
+            </div>
+          </form>
+
+          <button class="close-search-form"></button>
+
+        </div>
+      </div>
+
+      <!-- top-header -->
+
+      <div class="top-header">
+
+        <!-- logo -->
+
+        <div class="logo-wrap">
+
+          <a href="{% url "home:index" %}" class="logo"><img src="{% static "images/_LOGOS.png" %}" alt=""></a>
+
+        </div>
+
+        <!-- - - - - - - - - - - - / Mobile Menu - - - - - - - - - - - - - -->
+
+        <!--main menu-->
+
+        <div class="menu-holder">
+
+          <div class="menu-wrap">
+
+            <div class="nav-item">
+
+              <!-- - - - - - - - - - - - - - Navigation - - - - - - - - - - - - - - - - -->
+
+              <nav id="main-navigation" class="main-navigation">
+                <ul id="menu" class="clearfix">
+                  <li class="current"><a href="{% url "home:index" %}"><i class="fas fa-home fa-lg"></i></a> </li>
+                  <li><a href="{% url "about_us:aboutus" %}">About Us</a>
+                    <div class="sub-menu-wrap">
+                      <ul>
+                        <li><a href="{% url "leadership:leadership_list" %}">Leadership</a></li>
+                        <li><a href="{% url "ministries:ministry_list" %}">Ministries</a></li>
+                      </ul>
+                    </div>
+                  <li><a href="{% url "sermons:sermon_list" %}">Sermon</a>
+                  <li><a href="{% url "events:event_list" %}">Events</a>
+                  <li><a href="{% url "contact:contactus" %}">Contact Us</a>
+                  <li><a href="{% url "livestream:live" %}">Live </a>
+                  <li><a href="{% url "livestream:live" %}"><i class="fas fa-desktop fa-2x" style="color: red;"></i></a></li>
+                </ul>
+              </nav>
+
+              <!-- - - - - - - - - - - - - end Navigation - - - - - - - - - - - - - - - -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- header buttons -->
+
+        <div class="header-btns">
+
+          <!-- shop button -->
+          <div class="head-btn">
+
+
+          <!-- button -->
+          <div class="head-btn">
+            <a href="https://app.easytithe.com/app/giving/Deep9999408" class="btn btn-big btn-style-5" rel="noopener noreferrer" target="_blank">Give <span>Online</span></a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </header>
+
+    <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
+
+	{% block content %}
+
+
+    {% endblock %}
+
+    <!-- - - - - - - - - - - - - - Start Footer - - - - - - - - - - - - - - - - -->
+
+    <div class="call-out newsletter">
+
+      <div class="container wide">
+
+        <div class="row align-items-center">
+          <div class="col-lg-7 offset-lg-1">
+
+            <h4 class="call-title f-left">Newsletter Sign Up</h4>
+            <form id="newsletter" class="newsletter style-2">
+              <button type="submit" data-type="submit" class="btn btn-big btn-style-5 f-right"><i class="licon-envelope"></i></button>
+              <div class="wrapper">
+                <input type="email" name="newsletter-email" placeholder="Enter your email address">
+              </div>
+            </form>
+
+          </div>
+          <div class="col-lg-4">
+
+            <ul class="social-icons style-2">
+
+              <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+              <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer id="footer" class="footer">
+
+      <div class="container wide">
+
+        <!-- main footer -->
+        <div class="main-footer">
+
+          <div class="row">
+
+            <div class="col-lg-3 col-sm-6">
+
+              <div class="widget">
+
+                <h5 class="widget-title">About Us</h5>
+
+                <p>Deeper Life Bible Church is an organization committed to serve God’s Name. As an organization united under God’s promises, we have been standing strong since 1973. Deeper Life Bible Church was founded by Pastor W.F. Kumuyi. Since then, our organization opened its doors to people of diverse backgrounds and ethnicities. </p>
+
+                <a href="https://app.easytithe.com/app/giving/Deep9999408" class="btn btn-style-8" rel="noopener noreferrer" target="_blank">Give Online</a>
+
+              </div>
+
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+
+              <div class="widget">
+
+                <h5 class="widget-title">New Here?</h5>
+
+                <ul class="menu-list">
+
+                  <li><a href="{% url "contact:contactus" %}">Location</a></li>
+                  <li><a href="{% url "leadership:leadership_list" %}">Leadership</a></li>
+
+
+                </ul>
+
+              </div>
+
+            </div>
+            <div class="col-lg-3 col-sm-6">
+
+              <div class="widget">
+
+                <h5 class="widget-title">Ministries</h5>
+
+                <ul class="menu-list">
+                    {% for m in ministries %}
+                  <li><a href="{{ m.get_absolute_url }}">{{ m.ministry_name }}</a></li>
+                   {% endfor %}
+
+                </ul>
+
+              </div>
+
+            </div>
+            <div class="col-lg-3 col-sm-6">
+
+              <div class="widget">
+
+                <h5 class="widget-title">Main Menu</h5>
+
+                <ul class="menu-list">
+
+                  <li><a href="{% url "about_us:aboutus" %}">About Us</a></li>
+                  <li><a href="{% url "sermons:sermon_list" %}">Sermons</a></li>
+                  <li><a href="{% url "events:event_list" %}">Events</a></li>
+                  <li><a href="{% url "contact:contactus" %}">Contact</a></li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="copyright">
+
+        <p>Copyright © 2018 <a href="#">Deeperlife Bible Church Gwinnett, GA</a>. All Rights Reserved.</p>
+
+      </div>
+
+    </footer>
+
+    <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+  </div>
+
+  <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+
+  <!-- JS Libs & Plugins
+  ============================================ -->
+  <script src="{% static "js/libs/jquery.modernizr.js" %}"></script>
+  <script src="{% static "js/libs/jquery-2.2.4.min.js" %}"></script>
+  <script src="{% static "js/libs/jquery-ui.min.js" %}"></script>
+  <script src="{% static "js/libs/retina.min.js" %}"></script>
+  <script src="{% static "plugins/jquery.localScroll.min.js" %}"></script>
+  <script src="{% static "plugins/jquery.scrollTo.min.js" %}"></script>
+  <script src="{% static "plugins/jquery.countdown.min.js" %}"></script>
+  <script src="{% static "plugins/fancybox/jquery.fancybox.js" %}"></script>
+  <script src="{% static "plugins/mad.customselect.js" %}"></script>
+  <script src="{% static "plugins/instafeed.min.js" %}"></script>
+  <script src="{% static "plugins/revolution/js/jquery.themepunch.tools.min.js?ver=5.0" %}"></script>
+  <script src="{% static "plugins/revolution/js/jquery.themepunch.revolution.min.js?ver=5.0" %}"></script>
+  <script src="{% static "plugins/jquery.queryloader2.min.js" %}"></script>
+  <script src="{% static "plugins/owl.carousel.min.js" %}"></script>
+
+  <!-- JS theme files
+  ============================================ -->
+  <script src="{% static "js/plugins.js" %}"></script>
+  <script src="{% static "js/script.js" %}"></script>
+  <script src="{% static "js/map.js" %}"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyB-bQVSPklrrEXBCN0r8zvrHd4krgKr4KE"></script>
+
+  <!-- JS files
+  ============================================ -->
+  <script type="text/javascript" src="{% static "plugins/revolution/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "plugins/revolution/js/extensions/revolution.extension.navigation.min.js" %}"></script>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

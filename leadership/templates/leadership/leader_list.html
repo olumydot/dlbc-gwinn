@@ -1,0 +1,111 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Leadership
+{% endblock %}
+
+{% block content %}
+
+
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">Leadership</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Leadership</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div id="content">
+
+      <div class="page-section">
+
+        <div class="container wide">
+            {% for leader_bio in leaders_bio %}
+            {% if leader_bio.lead_pastor %}
+          <div class="team-holder flex-row justify-content-center">
+
+            <!-- team element -->
+            <div class="team-item single-item">
+
+              <a href="{{ leader_bio.get_absolute_url }}" class="member-photo">
+                <img src="{{ leader_bio.leader_image.url }}" alt="">
+              </a>
+              <div class="team-desc">
+                <div class="member-info">
+                  <h4 class="member-name"><a href="{{ leader_bio.get_absolute_url }}">{{ leader_bio.leader_name }}</a></h4>
+                  <div class="member-position">{{ leader_bio.leader_position }}</div>
+                </div>
+                <p>{{ leader_bio.bio | truncatewords:20}}</p>
+                  <a href="{{ leader_bio.get_absolute_url }}" class="btn btn-small btn-style-4">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+            {% endif %}
+            {% endfor %}
+          <div class="team-holder flex-row item-col-3">
+            {% for leader_bio in leaders_bio %}
+            {% if not leader_bio.lead_pastor %}
+            <!-- team element -->
+            <div class="team-item">
+
+              <a href="{{ leader_bio.get_absolute_url }}" class="member-photo">
+                <img src="{{ leader_bio.leader_image.url }}" alt="">
+              </a>
+              <div class="team-desc">
+                <div class="member-info">
+                  <h5 class="member-name"><a href="{{ leader_bio.get_absolute_url }}">{{ leader_bio.leader_name }}</a></h5>
+                  <div class="member-position">{{ leader_bio.leader_position }}</div>
+                </div>
+              </div>
+
+            </div>
+            {% endif %}
+          {% endfor %}
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="call-out parallax-section" data-bg="{% static "images/adult-audience-black-and-white-1666816.jpg" %}">
+
+        <div class="container wide">
+
+          <div class="align-center">
+            <div class="pre-title">Ready to serve?</div>
+            <h2 class="call-title">Become a memeber</h2>
+            <a href="{% url "contact:contactus" %}" class="btn btn-style-7 btn-big">Serve God with us</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

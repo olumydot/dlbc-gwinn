@@ -1,0 +1,145 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Contact US
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">Contact</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Contact Us</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content">
+
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <div class="row">
+            <div class="col-lg-4">
+
+              <h2>Head Office</h2>
+
+              <!-- Google map -->
+              <div class="map-section style-2">
+
+                <div id="googleMap" class="map-container"></div>
+
+                <div class="our-info style-2">
+                    {% for contact in ourcontact %}
+                  <p class="info-item">
+                    <span>Address:</span> {{ contact.Address }}
+                    <a href="{{ contact.location_map.url }}" class="get-dir link-text">Get Direction</a>
+                  </p>
+                  <p class="info-item">
+                    <span>Phone:</span> <span content="telephone=no">{{ contact.PhoneNumber }}</span>
+                  </p>
+                  <p class="info-item">
+                    <span>Email:</span> <a href="mailto:deeperlifeatlga@gmail.com" class="link-text">{{ contact.E_mail }}</a>
+                  </p>
+                    {% endfor %}
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-lg-8">
+
+              <h2>We'd Love To Hear From You!</h2>
+              <p>Feel free to send us any questions you may have. We are happy to answer them.</p>
+
+              <form  class="contact-form style-2" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                  
+
+                <div class="contact-item">
+
+                  <button type="submit" class="btn btn-style-4" data-type="submit">Submit</button>
+
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="page-section-bg">
+
+        <div class="container wide">
+
+          <h2 class="section-title align-center">Other Locations</h2>
+
+          <div class="map-section">
+
+            <div class="row our-info style-2">
+                {% for location in otherlocations %}
+              <div class="col-lg-3 col-sm-6">
+
+                <h5 class="title">{{ location.location_Name }}</h5>
+                <p class="info-item">
+                  <span>Address:</span>{{ location.location_Address }}<br>
+                  <a href="{{ location.location_map.url }}" class="get-dir link-text">Get Direction</a>
+                </p>
+                <p class="info-item">
+                  <span>Phone:</span> <span content="telephone=no">{{ location.location_PhoneNumber }}</span>
+                </p>
+
+                <p class="info-item">
+                  <span>Email:</span> <a href="#" class="link-text">{{ location.location_E_mail }}</a>
+                </p>
+
+              </div>
+                {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{#    {{ block.super }}#}
+
+
+{% endblock %}

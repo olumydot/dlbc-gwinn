@@ -1,0 +1,79 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Ministries
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">Ministries</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Ministries</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+
+        <div class="icons-box style-2 type-2 flex-row item-col-3">
+            {% for ministry_detail in ministries_details %}
+          <div class="fx-col">
+
+            <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+            <div class="icons-wrap">
+
+              <div class="bg-img" data-bg="{{ ministry_detail.image.url }}" style="background-image: url(&quot;images/430x420_img1.jpg&quot;);"></div>
+
+              <div class="icons-item">
+                <div class="item-box">
+                  <h4 class="icons-box-title"><a href="{{ ministry_detail.get_absolute_url }}">{{ ministry_detail.ministry_name }}</a></h4>
+                  <p>Ages {{ ministry_detail.Age }}</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+            {% endfor %}
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

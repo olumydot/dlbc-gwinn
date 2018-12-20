@@ -1,0 +1,115 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Livestream
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">{{ sermon_detail.sermon_name }}</h1>
+
+        <ul class="breadcrumbs">
+            {% for l in livestream %}
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Livestream</li>
+          <li>{{ l.program }}</li>
+            {% endfor %}
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+        {% for l in livestream %}
+        <h1 class="align-center">{{ l.program }}</h1>
+
+        <div class="content-element">
+
+          <div class="single-post">
+
+              <div class="video-holder">
+                <a href="{{ l.livestream_link}}" class="video-btn" data-fancybox="video"></a>
+                <img src="{{ l.imaage.url }}" alt="">
+              </div>
+            <div class="content-element4">
+
+              <div class="row">
+                <div class="col-md-8">
+
+                  <h5 class="e-title">Description</h5>
+
+                  <p>{{ l.description }}</p>
+
+{#                  <div class="btns-set content-element4">#}
+{##}
+{#                    <a href="{{ sermon_detail.video_link }}" class="btn"><i class="licon-camera-play"></i>Watch</a>#}
+{#                    <a href="{{ sermon_detail.audio_link }}" class="btn"><i class="licon-headphones"></i>Listen</a>#}
+{#                    <a href="{{ sermon_detail.video_link }}" class="btn"><i class="licon-enter-down2"></i>Download</a>#}
+{##}
+{##}
+{#                  </div>#}
+
+                  <div class="share-wrap">
+
+                    <span class="share-title">Share this:</span>
+                    <ul class="social-icons share">
+
+                      <li><a href="#" class="sh-facebook"><i class="fab fa-facebook-square"></i></a></li>
+                      <li><a href="#" class="sh-twitter"><i class="fab fa-twitter-square"></i></a></li>
+                      <li><a href="#" class="sh-google"><i class="fab fa-instagram"></i></a></li>
+                      <li><a href="#" class="sh-mail"><i class="fas fa-envelope"></i></a></li>
+
+                    </ul>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="page-nav">
+
+            </div>
+
+          </div>
+
+        </div>
+
+       {% endfor %}
+
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

@@ -1,0 +1,183 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ ministry_detail.ministry_name }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">{{ ministry_detail.ministry_name }}</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li><a href="{% url "ministries:ministry_list" %}">Ministries</a></li>
+          <li>{{ ministry_detail.ministry_name }}</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+
+        <h1>{{ ministry_detail.ministry_name }}</h1>
+
+        <div class="row">
+
+          <main id="main" class="col-lg-9">
+
+            <figure class="content-element3">
+              <img src="{{ ministry_detail.image.url }}" alt="">
+            </figure>
+
+            <div class="content-element3">
+
+              <p>{{ ministry_detail.details }}</p>
+
+
+            </div>
+
+            <div class="content-element3">
+
+
+            <div class="share-wrap">
+
+              <span class="share-title">Share this:</span>
+              <ul class="social-icons share">
+
+                <li><a href="#" class="sh-facebook"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="#" class="sh-twitter"><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="#" class="sh-pinterest"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="sh-mail"><i class="fas fa-envelope"></i></a></li>
+
+              </ul>
+
+            </div>
+
+          </main>
+          <aside id="sidebar" class="col-lg-3">
+
+            <div class="widget">
+
+              <h5 class="widget-title">Leadership</h5>
+
+              <div class="entry-box entry-small">
+
+                <!-- Entry -->
+                <div class="entry-col">
+                    {% for leader in leaders %}
+
+                  <div class="entry">
+                    {% if leader.Leader_ministry == ministry_detail.ministry_name or leader.Leader_ministry == 'All'%}
+                    <!-- - - - - - - - - - - - - - Entry attachment - - - - - - - - - - - - - - - - -->
+                    <div class="thumbnail-attachment">
+                      <a href="{{ leader.get_absolute_url }}"><img src="{{ leader.leader_image.url }}" alt=""></a>
+                    </div>
+
+                    <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+                    <div class="entry-body">
+
+                      <h6 class="entry-title"><a href="{{ leader.get_absolute_url }}">{{ leader.leader_name }}</a></h6>
+                      <div class="entry-meta">
+
+                        <span>{{ leader.leader_position }}</span>
+
+                      </div>
+
+                    </div>
+                    {% endif %}
+                  </div>
+                 {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="widget">
+
+              <h5 class="widget-title">Other Ministries</h5>
+
+              <ul class="custom-list style-2">
+                  {% for ministry in ministries %}
+                <li><a href="{% url "ministries:ministry_list" %}">{{ ministry.name }}</a></li>
+                {% endfor %}
+              </ul>
+
+            </div>
+
+            <div class="widget">
+
+              <h5 class="widget-title">Upcoming Events</h5>
+              <div class="event-box style-2">
+                {% for event in events %}
+                    {% if event.ministry_name == ministry.name %}
+                <!-- Event -->
+                <div class="event">
+
+                  <div class="event-date">
+
+                    <h3 class="numb">{{ event.start_date.month }}</h3>
+                    <h6 class="month">{{ event.start_date.day }}</h6>
+
+                  </div>
+
+                  <div class="event-body">
+
+                    <h6 class="event-title"><a href="#">{{ event.event_name }}</a></h6>
+
+                    <p class="e-info">{{ event.start_time }} - {{ event.end_time }} {{ event.venue_name }}</p>
+
+                  </div>
+
+                </div>
+                    {% endif %}
+                  {% endfor %}
+
+                <!-- Event -->
+
+                <!-- Event -->
+
+              </div>
+
+              <a href="{% url "events:event_list" %}" class="btn btn-small btn-style-6">More Events</a>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

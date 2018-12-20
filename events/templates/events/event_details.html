@@ -1,0 +1,183 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Sermons
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">{{ event_detail.event_name }}</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li><a href="{% url "events:event_list" %}">Events</a></li>
+          <li>{{ event_detail.event_name }}</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+
+        <div class="content-element2">
+
+
+
+          <hr class="item-divider">
+
+        </div>
+
+        <div class="content-element">
+
+          <div class="event-box single-post">
+
+            <div class="event">
+
+              <div class="event-body">
+
+                <h1 class="event-title">{{ event_detail.event_name }}</h1>
+
+                <div class="entry-meta clearfix">
+
+                  {{ event_detail.start_date }} @ {{ event_detail.start_time }} - {{ event_detail.end_time }} |
+
+                  <span class="price f-right">{{ event_detail.cost }}</span>
+
+                </div>
+
+              </div>
+
+              <div class="content-element3">
+
+                <div class="row">
+                  <div class="col-lg-8">
+
+                    <div class="content-element3">
+                      <img src="{{ event_detail.image.url }}" alt="">
+                    </div>
+
+                    <div class="content-element3">
+
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6">
+
+                          <h5 class="e-title">Details</h5>
+
+                          <ul class="custom-list">
+
+                            <li><span>Date:</span> {{ event_detail.start_date }} - {{ event_detail.end_date }}</li>
+                            <li><span>Time:</span> {{ event_detail.start_time }} - {{ event_detail.end_time }}</li>
+                            <li><span>Cost:</span> <span class="product-price">{{ event_detail.cost }}</span></li>
+                            <li><span>Website:</span> <a href="{{ event_detail.event_website.url }}" class="link-text">{{ event_detail.event_website }}</a></li>
+
+                          </ul>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+
+                          <h5 class="e-title">Organizer</h5>
+
+                          <ul class="custom-list">
+                            <li><span>Ministry:</span> {{ event_detail.ministry_name }}e</li>
+                            <li><span>Contact:</span> {{ event_detail.contact_name }}e</li>
+                            <li content="telephone=no"><span>Phone:</span> {{ event_detail.contact_phone }}</li>
+                            <li><span>Email:</span> <a href="#" class="link-text">{{ event_detail.contact_email }}</a></li>
+                            <li><span>Website:</span> <a href="{{ event_detail.event_website.url }}" class="link-text">{{ event_detail.event_website }}</a></li>
+
+                          </ul>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="content-element3">
+
+                      <p>{{ event_detail.description }}</p>
+
+                    </div>
+
+                    <div class="share-wrap">
+
+                      <span class="share-title">Share this:</span>
+                      <ul class="social-icons share">
+
+                        <li><a href="#" class="sh-facebook"><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href="#" class="sh-twitter"><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a href="#" class="sh-pinterest"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="sh-mail"><i class="fas fa-envelope"></i></a></li>
+
+                      </ul>
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-4">
+
+                    <div id="googleMap" class="map-container content-element3"></div>
+
+                    <h5 class="e-title">Venue</h5>
+
+                    <ul class="custom-list">
+
+                      <li><span>Venue Name:</span> {{ event_detail.venue_name }}</li>
+                      <li><span>Address:</span> {{ event_detail.venue_address }}</li>
+
+                    </ul>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

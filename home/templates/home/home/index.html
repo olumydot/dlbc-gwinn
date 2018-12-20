@@ -1,0 +1,649 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Welcome!
+{% endblock %}
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - Revolution Slider - - - - - - - - - - - - - - - - -->
+
+    <div class="rev-slider-wrapper full-scr">
+
+      <div id="rev-slider" class="rev-slider tp-simpleresponsive"  data-version="5.0">
+
+        <ul>
+            {% for s in slider %}
+
+          <li data-transition="fade">
+
+            <img src= "{{ s.carouselImage.url }}" class="rev-slidebg" alt="">
+
+            <!-- - - - - - - - - - - - - - Layer 1 - - - - - - - - - - - - - - - - -->
+
+            <div class="tp-caption tp-resizeme scaption-white-large"
+              data-x="['center','center','center','center']" data-hoffset="0"
+              data-y="['middle','middle','middle','middle']" data-voffset="-50"
+              data-whitespace="nowrap"
+              data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+              data-responsive_offset="on"
+              data-elementdelay="0.05" >{{ s.name }}
+            </div>
+
+            <!-- - - - - - - - - - - - - - End of Layer 1 - - - - - - - - - - - - - - - - -->
+
+            <!-- - - - - - - - - - - - - - Layer 2 - - - - - - - - - - - - - - - - -->
+
+            <div class="tp-caption tp-resizeme scaption-white"
+              data-x="['center','center','center','center']" data-hoffset="0"
+              data-y="['middle','middle','middle','middle']" data-voffset="30"
+              data-whitespace="nowrap"
+              data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+              data-responsive_offset="on"
+              data-elementdelay="0.05" ><p>{{ s.body }}</p>
+            </div>
+
+            <!-- - - - - - - - - - - - - - End of Layer 2 - - - - - - - - - - - - - - - - -->
+
+            <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+            <div class="tp-caption tp-resizeme scaption-white"
+              data-x="['center','center','center','center']" data-hoffset="0"
+              data-y="['middle','middle','middle','middle']" data-voffset="120"
+              data-whitespace="nowrap"
+              data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+              data-responsive_offset="on"
+              data-elementdelay="0.05" >
+              <a href="{% url "about_us:aboutus" %}" class="btn btn-big btn-style-7">{{ s.carouselButtonCharacter }}</a>
+            </div>
+
+            <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+
+          </li>
+
+            {% endfor %}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - - End of Slider - - - - - - - - - - - - - - - - -->
+
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content">
+    {% for item in welcomemessage %}
+      <!-- Page section -->
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <div class="row row-wide align-items-center">
+            <div class="col-md-6">
+
+              <div class="video-holder">
+                <a href="{{ item.welcomeVidieoLink }}" class="video-btn" data-fancybox="video"></a>
+                <img src="{{ item.welcomeVideoImage.url }}" alt="">
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="pre-title color2">Shortly About us</div>
+              <h2 class="title2">{{ item.title }}</h2>
+              <p>{{ item.body }}</p>
+
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="icons-box style-2 flex-row no-gutters item-col-4">
+            {% for icon in iconbox %}
+
+                <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+        <div class="icons-wrap">
+
+          <div class="bg-img" data-bg="{{ icon.iconImage.url }}"></div>
+          <div class="icons-item">
+            <div class="item-box">
+              <h3 class="icons-box-title"><a href="#">{{ icon.title }}</a></h3>
+              <p>{{ icon.body }}</p>
+              <div class="hidden-area">
+                <a href="{% url "about_us:aboutus" %}" class="btn btn-style-3">{{ icon.iconButtonCharacter }}</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+
+
+      </div>
+  <!-- Page section -->
+      <div class="page-section size2 parallax-section" data-bg="images/_counter_bg.jpg">
+
+        <div class="container wide">
+
+          <div class="counter-wrap style-2 item-col-4">
+
+            <div class="counter">
+              <div class="count-item">
+                <h3 class="" data-to="58" data-speed="1500" >All</h3>
+                <p >Nations</p>
+              </div>
+            </div>
+
+            <div class="counter">
+              <div class="count-item">
+                <h3 class="" data-to="2164" data-speed="1500" >All</h3>
+                <p >People</p>
+              </div>
+            </div>
+
+            <div class="counter">
+              <div class="count-item">
+                <h3 class="" data-to="937" data-speed="1500" >With one</h3>
+                <p >Voice</p>
+              </div>
+            </div>
+
+            <div class="counter">
+              <div class="count-item">
+                <h3 class="" data-to="505487" data-speed="1500" >Shout</h3>
+                <p >to the Lord</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="half-bg-col size2 count-event two-cols">
+
+              {% for e in events %}
+                  {% if e.special %}
+
+        <div class="img-col-left"><div class="col-bg left-bg" data-bg="{{ e.image.url }}"></div></div>
+                {% endif %}
+                {% endfor %}
+        <div class="container wide">
+
+          <div class="row align-items-center">
+
+            <div class="col-lg-6 left-col">
+
+              <div class="event-holder">
+
+
+                <!-- Events area -->
+                <div class="event-box" >
+
+                  <!-- Events area -->
+                  <div class="event">
+                    {% for e in events %}
+                        {% if e.special %}
+                    <div class="event-body">
+
+                      <h3 class="event-title" style="text-decoration-color: #0f0f11;">{{ e.event_name }}</h3>
+
+                      <p class="e-info" style="text-decoration-color: #0f0f11;">{{ e.start_date }} <br>
+                      {{ e.venue_address }}</p>
+
+                    </div>
+
+                    <div class="event-action flex-row align-items-center">
+
+                      <a href="{{ e.get_absolute_url }}" class="btn btn-style-5" style="text-decoration-color: #0f0f11;">Join us</a>
+                      <div class="event-icons">
+
+                        <a href="{{ e.get_absolute_url }}"style="text-decoration-color: #0f0f11;"><i class="licon-share2"></i></a>
+                        <a href="{{ e.get_absolute_url }}"style="text-decoration-color: #0f0f11;"><i class="licon-map-marker"></i></a>
+                        <a href="{{ e.get_absolute_url }}"style="text-decoration-color: #0f0f11;"><i class="licon-at-sign"></i></a>
+
+                      </div>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-lg-6 right-col">
+
+              <h2 class="section-title">Upcoming Events</h2>
+
+              <!-- Events area -->
+              <div class="event-box style-2">
+                  {% for e in events %}
+                  {% if e.featured %}
+                <!-- Event -->
+                <div class="event">
+
+                  <div class="event-date">
+
+                    <h3 class="numb">{{ e.start_date.month }}</h3>
+                    <h6 class="month">{{ e.start_date.day }}</h6>
+                     <h3 class="numb">{{ e.start_date.year }}</h3>
+
+
+                  </div>
+
+                  <div class="event-body">
+
+                    <h5 class="event-title">{{ e.event_name }} </h5>
+
+                    <p class="e-info">{{ e.start_date }} @ {{ e.start_time }} - {{ e.end_time }}
+                    {{ e.venue_address }}</p>
+
+                  </div>
+
+                  <div class="event-action">
+
+                    <a href="{{ e.get_absolute_url }}" class="btn">Learn more</a>
+                    <div class="event-icons">
+
+                      <a href="{{ e.get_absolute_url }}"><i class="licon-share2"></i></a>
+                      <a href="{{ e.get_absolute_url }}"><i class="licon-map-marker"></i></a>
+                      <a href="{{ e.get_absolute_url }}"><i class="licon-at-sign"></i></a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+                {% endif %}
+                  {% endfor %}
+                <!-- Event -->
+
+
+                <!-- Event -->
+
+
+              </div>
+
+              <a href="{% url "events:event_list" %}" class="btn btn-small btn-style-4">More Events</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+ <!-- Page section -->
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <h2 class="section-title align-center">Recent Sermons</h2>
+
+          <!-- Entries -->
+          <div class="entry-box flex-row item-col-3">
+            {% for s in sermons %}
+                {% if s.recent %}
+            <!-- Entry -->
+            <div class="entry-col">
+
+              <div class="entry">
+
+                <!-- - - - - - - - - - - - - - Entry attachment - - - - - - - - - - - - - - - - -->
+                <div class="thumbnail-attachment">
+                  <a href="{{ s.get_absolute_url }}"><img src="{{ s.image.url }}" alt=""></a>
+                </div>
+
+                <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+                <div class="entry-body">
+
+                  <h5 class="entry-title"><a href="#">
+                    {{ s.sermon_name }}</a></h5>
+                  <div class="entry-meta">
+
+                    <span>on</span>
+                    <time class="entry-date" datetime="2018-03-18">{{ s.date }}</time>
+                    <span>by</span>
+                    <a href="#" class="entry-cat">{{ s.preacher_name }}</a>
+
+                  </div>
+                  <p>{{ s.details | truncatewords:25 }}</p>
+
+                  <div class="entry-action">
+
+                    <a href="{{ s.get_absolute_url }}"><i class="licon-camera-play"></i></a>
+                    <a href="{{ s.get_absolute_url }}"><i class="licon-headphones"></i></a>
+                    <a href="{{ s.get_absolute_url }}"><i class="licon-enter-down2"></i></a>
+                    <a href="{{ s.get_absolute_url }}"><i class="licon-file-empty"></i></a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+                {% endif %}
+              {% endfor %}
+
+            <!-- Entry -->
+
+
+            <!-- Entry -->
+
+
+          </div>
+
+          <div class="align-center">
+            <a href="{% url "sermons:sermon_list" %}" class="btn btn-small btn-style-4">More Sermons</a>
+          </div>
+
+        </div>
+
+      </div>
+<!-- Page section -->
+    {% for icon in quotableimage %}
+      <div class="page-section-bg parallax-section" data-bg="{{ icon.image.url }}" >
+    {% endfor %}
+
+        <div class="container">
+
+          <div class="carousel-type-1">
+
+            <div class="owl-carousel testimonial-holder style-2" data-max-items="1" data-autoplay="true">
+
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+                  {% for quote in quotablequote1 %}
+                <div class="testimonial">
+
+                  <blockquote>
+                    <p>{{ quote.quote }} </p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+
+                  </div>
+
+                </div>
+                {% endfor %}
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+              <!-- Slide -->
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                   {% for quote in quotablequote2 %}
+{#                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->#}
+                <div class="testimonial">
+
+                  <blockquote>
+                    <p>{{ quote.quote }}</p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+
+                  </div>
+
+                </div>
+                  {% endfor %}
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+              <!-- Slide -->
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                  {% for quote in quotablequote3 %}
+                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+                <div class="testimonial">
+
+                  <blockquote>
+                    <p>{{ quote.quote }}</p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+
+                  </div>
+
+                </div>
+                  {% endfor %}
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!-- Page section -->
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <div class="title-holder align-center">
+
+            <div class="pre-title color2">Get Involved</div>
+            <h2 class="section-title">Our Ministries</h2>
+
+          </div>
+
+          <div class="icons-box style-2 type-2 flex-row item-col-3">
+            {% for m in ministries %}
+            <div class="fx-col">
+
+              <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+
+              <div class="icons-wrap">
+
+                <div class="bg-img" data-bg="{{ m.image.url }}"></div>
+
+                <div class="icons-item">
+                  <div class="item-box">
+                    <h4 class="icons-box-title"><a href="{{ m.get_absolute_url }}">{{ m.ministry_name }}</a></h4>
+                    <p>{{ m.Age }}</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Page section -->
+      <div class="page-section-bg parallax-section" data-bg="{% static "images/_timer_backgroup.jpg" %}">
+
+        <div class="container wide">
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="act align-center">
+                {% for quote in quotablequote4 %}
+                <h3 class="section-title-2 color2"><b>{{ quote.quote }}</b></h3>
+                <p><b>{{ quote.verse }}</b></p>
+                <p><b>{{ quote.version }}</b></p>
+                {% endfor %}
+              </div>
+
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="call-out half-section">
+
+        <div class="call-out-col">
+
+          <div class="bg-img" data-bg="{% static "images/prayer.jpg" %}"></div>
+
+          <h2 class="call-title">Need Prayers?</h2>
+          <p>No matter what you’re facing, <br> we’d love to pray with you! </p>
+          <a href="{% url "contact:contactus" %}" class="btn btn-style-7 btn-big">Ask For prayer</a>
+
+        </div>
+        <div class="call-out-col">
+
+          <div class="bg-img" data-bg="{% static "images/give1.jpg" %}"></div>
+
+          <h2 class="call-title">Want to Help?</h2>
+          <p>Your financial support is very important <br> for our global projects.</p>
+          <a href="https://app.easytithe.com/app/giving/Deep9999408" class="btn btn-style-7 btn-big" rel="noopener noreferrer" target="_blank">Give Online</a>
+
+        </div>
+
+      </div>
+
+      <div class="call-out size4 half-bg-col">
+
+        <div class="img-col-left"><div class="col-bg" data-bg="{% static "images/adult-audience-black-and-white-1666816.jpg" %}"></div></div>
+
+        <div class="container wide">
+
+          <div class="row col-no-space">
+
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6">
+                {% for l in livestream %}
+                    {% if l.live %}
+              <h2 class="title2">Now Streaming</h2>
+              <p>{{ l.program }}</p>
+              <div class="store-btns">
+
+                <div class="head-btn">
+                    <a href="{% url "livestream:live" %}" class="btn btn-big btn-style-5">Join <span>live</span></a>
+                </div>
+
+              </div>
+               {% else %}
+              <h2 class="title2">Now Streaming</h2>
+              <p>No program is currently streaming</p>
+              <div class="store-btns">
+
+                <div class="head-btn">
+                    <a href="{% url "sermons:sermon_list" %}" class="btn btn-small btn-style-4">check out our recent sermons</a>
+                </div>
+
+              </div>
+               {% endif %}
+                {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Page section -->
+      <div class="page-section-bg">
+
+        <div class="container wide">
+
+          <div class="insta-title align-center">
+
+            <i class="fab fa-instagram"></i>
+            <h4>Follow Us On Instagram</h4>
+
+          </div>
+          <div id="instafeed" class="instagram-feed" data-instagram="4"></div>
+
+        </div>
+
+      </div>
+
+      <!-- Google map -->
+      <div class="map-section">
+
+        <div id="googleMap" class="map-container"></div>
+
+      </div>
+
+            <!-- Page section -->
+      <div class="page-section no-offset">
+
+        <div class="container wide">
+
+          <div class="our-info">
+
+            <div class="info-item">
+              <i class="licon-telephone"></i>
+              <div class="wrapper">
+                <p content="telephone=no">+1 678-523-2712</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="licon-map-marker"></i>
+              <div class="wrapper">
+                <p>5028 Covington Highway <br> Decatur, GA 30035 </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="licon-envelope"></i>
+              <div class="wrapper">
+                <p><a href="mailto:deeperlifeatlga@gmail.com">deeperlifeatlga@gmail.com</a></p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

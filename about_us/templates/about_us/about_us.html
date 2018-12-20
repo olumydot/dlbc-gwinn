@@ -1,0 +1,263 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    About US
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">About Us</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>About Us</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+    <div class="rev-slider-wrapper full-scr">
+
+      <div id="rev-slider" class="rev-slider tp-simpleresponsive"  data-version="5.0">
+
+        <ul>
+            {% for photo in openingphoto %}
+
+          <li data-transition="fade">
+
+            <img src= "{{ photo.image.url }}" class="rev-slidebg" alt="">
+
+          </li>
+
+            {% endfor %}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content">
+
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <div class="title-holder align-center">
+
+            <div class="pre-title color2">About Churhius</div>
+              {% for about in aboutus %}
+            <h2>{{ about.header }}</h2>
+
+            <p>{{ about.body }}</p>
+
+{#            <a href="#" class="btn btn-small btn-style-4">Read Our history</a>#}
+            {% endfor %}
+          </div>
+
+        </div>
+
+      </div>
+
+        {% for image in quotableimage %}
+      <div class="page-section-bg parallax-section" data-bg="{{ image.image.url }}">
+        {% endfor %}
+        <div class="container">
+
+          <div class="carousel-type-1">
+
+            <div class="owl-carousel dots-white testimonial-holder style-2 var2" data-max-items="1" data-autoplay="true">
+
+              <!-- Slide -->
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+                <div class="testimonial">
+                    {% for quote in quotablequote1 %}
+                  <blockquote>
+                    <p>{{ quote.quote }}</p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                </div>
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+              <!-- Slide -->
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+                 <div class="testimonial">
+                    {% for quote in quotablequote2 %}
+                  <blockquote>
+                    <p>{{ quote.quote }}</p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                </div>
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+              <!-- Slide -->
+              <div class="item-carousel">
+                <!-- Carousel Item -->
+                <!-- - - - - - - - - - - - - - Testimonial - - - - - - - - - - - - - - - - -->
+                 <div class="testimonial">
+                    {% for quote in quotablequote3 %}
+                  <blockquote>
+                    <p>{{ quote.quote }}</p>
+                  </blockquote>
+
+                  <div class="author-box">
+
+                    <div class="author-info">
+                      <div class="author">{{ quote.verse }}</div>
+                      <a href="#" class="author-position">{{ quote.version }}</a>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                </div>
+                <!-- /Carousel Item -->
+              </div>
+              <!-- /Slide -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="page-section-bg">
+
+        <div class="container wide">
+
+          <h2 class="align-center">What We Believe</h2>
+
+          <div class="icons-box style-1 flex-row item-col-3">
+
+            <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+            <div class="icons-wrap">
+
+              <div class="icons-item">
+                <div class="item-box">
+                    {% for belief1 in beliefs1 %}
+                  <i>1.</i>
+                  <h4 class="icons-box-title">{{ belief1.header }}</h4>
+                  <p>{{ belief1.body }}</p>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </div>
+
+            <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+         <div class="icons-wrap">
+
+              <div class="icons-item">
+               <div class="item-box">
+                    {% for belief in beliefs2 %}
+                        <i>2.</i>
+                        <h4 class="icons-box-title">{{ belief.header }}</h4>
+                        <p>{{ belief.body }}</p>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </div>
+
+            <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+            <div class="icons-wrap">
+
+              <div class="icons-item">
+               <div class="item-box">
+                    {% for belief in beliefs3 %}
+                        <i>3.</i>
+                        <h4 class="icons-box-title">{{ belief.header }}</h4>
+                        <p>{{ belief.body }}</p>
+                    {% endfor %}
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+       {% for leader in leaders %}
+      {% if leader.lead_pastor %}
+      <div class="page-section-bg parallax-section" data-bg="{{ leader.leader_image.url }}">
+
+        <div class="container wide">
+
+          <div class="row">
+
+            <div class="col-lg-5">
+
+              <div class="pre-title color2">Meet The Lead Pastor</div>
+              <h2 class="title2">{{ leader.leader_name }}</h2>
+              <p>{{ leader.bio | truncatewords:35 }}</p>
+              <a href="{{ leader.get_absolute_url }}" class="btn btn-small btn-style-4">Read More</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    {% endif %}
+   {% endfor %}
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

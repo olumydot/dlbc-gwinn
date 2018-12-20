@@ -1,0 +1,93 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    Sermons
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+</div>
+<!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">Events</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li>Events</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap">
+
+      <div class="container wide">
+        <hr class="item-divider">
+        <h3 class="title">Events</h3>
+
+        <!-- Isotope -->
+        <div class="isotope three-collumn clearfix event-box style-2 grid-type" data-isotope-options='{"itemSelector" : ".item","layoutMode" : "masonry","transitionDuration":"0.7s","masonry" : {"columnWidth":".item"}}'>
+           <div class="entry-box flex-row item-col-3">
+
+
+            {% for e in events_details %}
+          <!-- Isotope item -->
+          <div class="item">
+
+            <!-- - - - - - - - - - - - - - Event - - - - - - - - - - - - - - - - -->
+            <div class="event">
+
+              <div class="event-img">
+
+                <a href="{{ e.get_absolute_url }}"><img src="{{ e.image.url }}" alt=""></a>
+
+              </div>
+
+              <div class="event-body">
+
+                <h5 class="event-title"><a href="{{ e.get_absolute_url }}">{{ e.event_name }}</a></h5>
+
+                <p class="e-info">{{ e.start_date }} @ {{ e.start_date }} - {{ e.end_time }} <br>
+                {{ e.venue_address }}</p>
+
+                <p>{{ e.description | truncatewords:30 }}</p>
+
+              </div>
+
+            </div>
+
+          </div>
+            {% endfor %}
+
+        </div>
+       </div>
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}

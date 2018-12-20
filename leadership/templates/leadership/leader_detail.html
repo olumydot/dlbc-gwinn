@@ -1,0 +1,124 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ leader_bio.leader_name }}
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
+
+      <div class="container wide" style="padding-top: 80px;">
+
+        <h1 class="page-title">About {{ leader_bio.leader_name }}</h1>
+
+        <ul class="breadcrumbs">
+
+          <li><a href="{% url "home:index" %}">Home</a></li>
+          <li><a href="{% url "leadership:leadership_list" %}">Leadership</a></li>
+          <li>{{ leader_bio.leader_name }}</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content">
+
+      <div class="page-section">
+
+        <div class="container wide">
+
+          <div class="team-holder single-member">
+
+            <div class="member-info">
+              <h1 class="member-name"><a href="#">{{ leader_bio.leader_name }}</a></h1>
+              <div class="member-position">{{ leader_bio.leader_position }}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-9">
+
+                <div class="team-member">
+
+                  <a href="#" class="member-photo">
+                    <img src="{{ leader_bio.leader_image.url }}" alt="">
+                  </a>
+
+                  <div class="team-desc">
+
+                    <p>{{ leader_bio.bio }} </p>
+
+
+                    <div class="text-size-medium content-element2">Connect With {{ leader_bio.leader_name }}:</div>
+                    <ul class="social-icons share var2">
+
+                      <li><a href="{{ leader_bio.Leader_facebook }}" class="sh-facebook"><i class="fab fa-facebook-square"></i></a></li>
+                      <li><a href="{{ leader_bio.Leader_twitter }}" class="sh-twitter"><i class="fab fa-twitter-square"></i></a></li>
+                      <li><a href="{{ leader_bio.Leader_instagram }}" class="sh-google"><i class="fab fa-instagram"></i></a></li>
+                      <li><a href="mailto:{{ leader_bio.Leader_email }}" class="sh-mail" ><i class="fas fa-envelope"></i></a></li>
+
+                    </ul>
+
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-md-3">
+
+                <div class="widget">
+
+                  <h5 class="widget-title"><b>Leadership</b></h5>
+
+                  <ul class="custom-list style-2">
+                      {% for l in leaders %}
+                    <li><a href="{{ l.get_absolute_url }}">{{ l.name }}</a></li>
+                      {% endfor %}
+                  </ul>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="call-out parallax-section" data-bg="{% static "images/adult-audience-black-and-white-1666816.jpg" %}">
+
+        <div class="container wide">
+
+          <div class="align-center">
+            <div class="pre-title">Ready to serve?</div>
+            <h2 class="call-title">Become a memeber</h2>
+            <a href="{% url "contact:contactus" %}" class="btn btn-style-7 btn-big">Serve God with us</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- {{ block.super }} -->
+
+{% endblock %}
