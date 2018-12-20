@@ -2,15 +2,12 @@
 {% load static %}
 
 {% block title %}
-    About US
+    Leadership
 {% endblock %}
 
 {% block content %}
-<div>
-    <br>
-</div>
 
-    <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
 
     <div class="breadcrumbs-wrap style-2 align-center" style="margin-top: -30px;">
 
@@ -30,7 +27,8 @@
     </div>
 
     <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
-    <div class="rev-slider-wrapper full-scr">
+
+     <div class="rev-slider-wrapper full-scr">
 
       <div id="rev-slider" class="rev-slider tp-simpleresponsive"  data-version="5.0">
 
@@ -52,17 +50,15 @@
     </div>
 
 
-    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+<div id="content">
 
-    <div id="content">
-
-      <div class="page-section">
+<div class="page-section">
 
         <div class="container wide">
 
           <div class="title-holder align-center">
 
-            <div class="pre-title color2">About Churhius</div>
+            <div class="pre-title color2">About Deeperlife</div>
               {% for about in aboutus %}
             <h2>{{ about.header }}</h2>
 
@@ -75,6 +71,11 @@
         </div>
 
       </div>
+
+
+
+
+
 
         {% for image in quotableimage %}
       <div class="page-section-bg parallax-section" data-bg="{{ image.image.url }}">
@@ -165,7 +166,15 @@
 
       </div>
 
-      <div class="page-section-bg">
+
+
+
+
+
+
+
+
+<div class="page-section-bg">
 
         <div class="container wide">
 
@@ -224,7 +233,7 @@
 
       </div>
 
-       {% for leader in leaders %}
+{% for leader in leaders %}
       {% if leader.lead_pastor %}
       <div class="page-section-bg parallax-section" data-bg="{{ leader.leader_image.url }}">
 
@@ -248,12 +257,7 @@
       </div>
     {% endif %}
    {% endfor %}
-    </div>
-
-    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
-
-
-
+</div>
 {% endblock %}
 
 {% block scripts %}
