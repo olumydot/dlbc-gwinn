@@ -44,7 +44,7 @@ numpy==1.13.3
 olefile==0.44
 paypal==1.2.5
 pdfrw==0.4
-Pillow==4.2.1
+Pillow==8.1.1
 poyo==0.4.1
 psycopg2==2.7.3.2
 pycparser==2.18
