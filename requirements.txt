@@ -35,7 +35,7 @@ greenlet==0.4.12
 gunicorn==19.7.1
 html5lib==0.999999999
 idna==2.6
-Jinja2==2.9.6
+Jinja2==2.11.3
 jinja2-time==0.2.0
 kombu==4.1.0
 MarkupSafe==1.0
