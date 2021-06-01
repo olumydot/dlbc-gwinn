@@ -65,7 +65,7 @@ spicy==0.16.0
 static3==0.7.0
 tinycss2==0.6.1
 tornado==4.5.2
-urllib3==1.22
+urllib3==1.26.5
 vine==1.1.4
 WeasyPrint==0.41
 webencodings==0.5.1
